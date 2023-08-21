@@ -1,61 +1,55 @@
-<!DOCTYPE html> <!-- <!DOCTYPE html>: Declares the document type and version of HTML. -->
-<html lang="en"> <!-- <html>: This is the root element. Every webpage has one and only one <html> tag. Inside this tag, we have two main sections: the <head> and the <body>. -->
-
-<head> <!-- <head>: Contains meta-information, links to stylesheets, links to scripts, and other information that isn't visible on the page itself. -->
-    <!-- Metadata for the browser and search engines -->
-    <meta charset="UTF-8"> <!-- Defines the character set for the page -->
-    <!-- <meta charset="UTF-8">: Specifies the character encoding. -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Makes the website responsive to device widths -->  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">: Ensures the webpage is mobile-responsive. -->
-    <title>Aneela's Website</title> <!-- Title of your webpage. It shows up in the browser tab. -->
-    
-    <!-- Internal CSS -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
     <style>
-        /* Contains internal CSS (Cascading Style Sheets) which dictate how the HTML elements are displayed on the page. */
-        /* This is how you comment in CSS. The following styles define how elements on the page will look. */
-        body {/*Contains the content of the webpage, including text, images, and other media.*/
-            font-family: Arial, sans-serif;
-            align: center;
-            background-color: rgb(200, 130, 142);
-            margin: 0; /*Margin is the space outside an element, used to control the distance between this element and neighboring elements.If you have two buttons side by side and you want them to be further apart from each other, you'd increase the margin.Margin can influence the space between elements, pushing them further apart.*/
-            padding: 0;/*Padding is the space inside an element, between the content of the element and its border. For instance, if you have a button with text inside it and you want the text to be a bit away from the edges of the button, you'd increase the padding.*/
+        body {
+            font-family: 'Arial', sans-serif;
+            background: pink;
+            color: #333;
+            text-align: center;
+            padding-top: 50px;
+            transition: background-color 0.5s; /* smooth transition for hover effects */
         }
-        main {
-            padding: 20px;
+        body:hover {
+            background: linear-gradient(to bottom right, lavender, pink);
         }
-        h1{
-            font family: cascadia code;
-            color: slategray;
-            padding: 30px;
-            text-align:center;
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: mediumvioletred; /* Adding a cute color to the header */
+        }
+        p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .highlight {
+            color: darkmagenta;
+            font-weight: bold;
+        }
+        .emoji {
+            font-size: 2em; 
+            transition: transform 0.3s; /* For a smooth scale effect */
+        }
+        .emoji:hover {
+            transform: scale(1.1); /* Slightly enlarge the emoji on hover */
         }
     </style>
 </head>
-
 <body>
-    <!-- This is the visible part of the webpage -->
-
-    <!-- Header Section -->
-    <header>
-        <h1>Welcome </h1>
-    </header>
-
-    <!-- Main Content Section -->
-    <main>
-        <p>Hello! My name is <span class="highlight">Aneela</span>. I'm currently sharpening my skills as a <span class="highlight">Software Developer Apprentice</span> at a leading <span class="highlight">international delivery company</span>. My passion lies in exploring new technologies and crafting meaningful software solutions. 
-            <br>
-            <br>
-            My favourite emoji is <span class="emoji">🚗💨💨💨💨</span> however I have not got a driving licence. 
-            <br>
-            <br>
-             As I continue to grow and learn, expect this website to evolve and showcase my expanding expertise.
-        </p>
-    </main>
-
-    <!-- Footer Section -->
-    <footer>
-        <p>&copy; 2023 Aneela Hussain. All Rights Reserved.</p>
-    </footer>
-
+    <h1>Welcome to my Website!</h1>
+    <p>
+    Hello! My name is <span class="highlight">Aneela</span>. I'm currently sharpening my skills as a <span class="highlight">Software Developer Apprentice</span> at a leading <span class="highlight">international delivery company</span>. My passion lies in exploring new technologies and crafting meaningful software solutions. 
+    <br>
+    <br>
+    My favourite emoji is <span class="emoji">🚗💨💨💨💨</span> however I have not got a driving licence. 
+    <br>
+    <br>
+     As I continue to grow and learn, expect this website to evolve and showcase my expanding expertise.
+    </p>
 </body>
-
 </html>
