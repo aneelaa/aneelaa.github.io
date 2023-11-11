@@ -1,60 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
+    <title>Aneela Movies</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
+
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            background: pink;
-            color: #333;
+            font-family: 'Quicksand', sans-serif;
+            background: url("https://sm.pcmag.com/t/pcmag_uk/help/h/how-to-pho/how-to-photograph-the-night-sky_h4y5.3840.jpg") no-repeat center center fixed;
+            background-size: cover;
+            color: #f5f5f5;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        h1, p {
             text-align: center;
-            padding-top: 50px;
-            transition: background-color 0.5s; /* smooth transition for hover effects */
-        }
-        body:hover {
-            background: linear-gradient(to bottom right, lavender, pink);
-        }
-        h1 {
-            font-size: 2em;
             margin-bottom: 20px;
-            color: mediumvioletred; /* Adding a cute color to the header */
         }
+
+        h1 {
+            font-size: 2.5em;
+        }
+
         p {
             font-size: 1.2em;
-            max-width: 800px;
-            margin: 0 auto;
         }
-        .highlight {
-            color: darkmagenta;
+
+
+        .input-container {
+            display: flex;
+            flex-direction: column; /* Change to column layout */
+            align-items: flex-start; /* Align input boxes with the video rows */
+            width: auto; /* Remove max-width to allow it to expand */
+            max-width: none; /* Remove max-width */
+        }
+
+        /* Styling for individual input boxes */
+        /* Styling for individual input boxes */
+        .input-box {
+            flex: 1;
+            min-width: auto; /* Remove the minimum width */
+            width: calc(50% - 100px); /* Make them 50% of the container width with spacing */
+            margin: 20px 0; /* Adjust vertical margin as needed */
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid #f5f5f5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Wider select box as per request */
+        #websites {
+            width: 100%;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
             font-weight: bold;
         }
-        .emoji {
-            font-size: 2em; 
-            transition: transform 0.3s; /* For a smooth scale effect */
+
+        input[type="text"],
+        input[type="password"],
+        select {
+            width: 100%;
+            padding: 5px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1em;
+            background: rgba(255, 255, 255, 0.2);
+            color: #f5f5f5;
+            border: 2px solid #f5f5f5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .emoji:hover {
-            transform: scale(1.1); /* Slightly enlarge the emoji on hover */
+
+        /* Styling for the video container */
+        .video-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+        }
+
+        /* CSS for the video rows */
+        .video-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        /* CSS for individual video items */
+        .video-item {
+            flex: 1;
+            max-width: calc(50% - 60px);
+            margin-right: 20px;
+        }
+
+        /* Set a fixed aspect ratio for the videos (portrait orientation) */
+        .video-item video {
+            width: 100%;
+            height: 0;
+            padding-bottom: 133.33%; /* 3:4 aspect ratio (portrait) */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* CSS for video captions */
+        .video-caption {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* Center the main content vertically and horizontally */
+        #main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* Center the video container and set a max-width */
+        .video-container {
+            max-width: 900px;
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+
+        /* Emotion Check section and Summary section styling */
+        .input-container,
+        .summary-section {
+            display: flex;
+            flex-direction: row; /* Display emotion checks and summaries side by side */
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        /* Adjust the spacing between emotion checks and summaries */
+        .input-container .input-box,
+        .summary-section .summary-box {
+            margin: 10px;
+        }
+
+        /* Adjust video captions alignment */
+        .video-caption {
+            margin-top: 5px;
+        }
+
+        #content-container {
+            max-height: 80vh; /* Adjust the height as needed */
+            overflow-y: auto; /* Enable vertical scrolling within the container */
+            width: 100%;
+            padding: 20px;
+            margin-top: 70px;
+        }
+ 
+
+        #password-section, #main-content {
+            display: none;
         }
     </style>
 </head>
+
 <body>
-    <h1>Welcome to my Website!</h1>
-    <p>
-    Hello! My name is <span class="highlight">Aneela</span>. I'm currently sharpening my skills as a <span class="highlight">Software Developer Apprentice</span> at a leading <span class="highlight">international delivery company</span>. My passion lies in exploring new technologies and crafting meaningful software solutions. 
-    <br>
-    <br>
-    My favourite emoji is <span class="emoji">🚗💨💨💨💨</span> however I have not got a driving licence. 
-    <br>
-    <br>
-     As I continue to grow and learn, expect this website to evolve and showcase my expanding expertise.
-    </p>
-        <script>
-        window.addEventListener('load', function() {
-            alert("Welcome to my website!");
-        });
+    <div id="password-section">
+        <label for="password-input">Enter password:</label>
+        <input type="password" id="password-input" />
+        <button onclick="checkPassword()">Submit</button>
+    </div>
+    <div id="main-content">
+        <h1>Movies 😎</h1>
+        <p>
+                    <!-- Row 1 -->
+        <div class="video-row">
+            <!-- Video 1 -->
+            <div class="video-item">
+                <iframe src="https://drive.google.com/file/d/105rAeBgxuydap3ZnBVWkEGMgF30Keper/preview" frameborder="0" allowfullscreen></iframe>
+                <div class="video-caption">Valiant</div>
+            </div>
+
+            <!-- Video 2 -->
+            <div class="video-item">
+                <iframe src="https://drive.google.com/file/d/1-yv1bsJbAj3uhSMMBotk2hMCS3uQCRCK/preview" frameborder="0" allowfullscreen></iframe>
+                <div class="video-caption">Stuart Little 2</div>
+            </div>
+
+            <!-- Video 3 -->
+            <div class="video-item">
+                <iframe src="https://drive.google.com/file/d/1-pqNZMhw9rxxyGXCtDH1baEs420SJ7f5/preview" frameborder="0" allowfullscreen></iframe>
+                <div class="video-caption">The Grinch</div>
+            </div>
+
+            <!-- Video 4 -->
+            <div class="video-item">
+                <iframe src="https://drive.google.com/file/d/1-n3EzlT0xR-9uakGAFPFrzs32iIvUPGb/preview" frameborder="0" allowfullscreen></iframe>
+                <div class="video-caption">Flushed Away</div>
+            </div>
+        </div>
+        <!-- Row 2 -->
+        <div class="video-row">
+            <!-- Video 5 -->
+            <div class="video-item">
+                <iframe src="https://drive.google.com/file/d/1-uwFCaNOBgxS-REiYDltfcuNJB9SoGeJ/preview" frameborder="0" allowfullscreen></iframe>
+                <div class="video-caption">Magic Roundabout</div>
+            </div>
+
+            <!-- Video 6 -->
+            <div class="video-item">
+                <iframe src="https://drive.google.com/file/d/10AvRGdYhwO2772R89sue-z62JunmFsH4/preview" frameborder="0" allowfullscreen></iframe>
+                <div class="video-caption">Elf</div>
+            </div>
+
+            <!-- Video 7 -->
+            <div class="video-item">
+                <iframe src="" frameborder="0" allowfullscreen></iframe>
+                <div class="video-caption">MonsterHouse</div>
+            </div>
+
+            <!-- Video 8 -->
+            <div class="video-item">
+                <iframe src="" frameborder="0" allowfullscreen></iframe>
+                <div class="video-caption">Cars</div>
+            </div>
+        </div>
+        <!-- Row 3 -->
+        <div class="video-row">
+            <!-- Video 9 -->
+            <div class="video-item">
+                <iframe src="" frameborder="0" allowfullscreen></iframe>
+                <div class="video-caption">Shrek</div>
+            </div>
+
+            <!-- Video 10 -->
+            <div class="video-item">
+                <iframe src="" frameborder="0" allowfullscreen></iframe>
+                <div class="video-caption">Madagascar</div>
+            </div>
+
+            <!-- Video 11 -->
+            <div class="video-item">
+                <iframe src="" frameborder="0" allowfullscreen></iframe>
+                <div class="video-caption">Son of the Mask</div>
+            </div>
+
+            <!-- Video 12 -->
+            <div class="video-item">
+                <iframe src="" frameborder="0" allowfullscreen></iframe>
+                <div class="video-caption">Cat in the Hat</div>
+            </div>
+        </div>
+        <!-- Row 4 -->
+        <div class="video-row">
+            <!-- Video 13 -->
+            <div class="video-item">
+                <iframe src="" frameborder="0" allowfullscreen></iframe>
+                <div class="video-caption">Ice Age</div>
+            </div>
+
+            <!-- Video 14 -->
+            <div class="video-item">
+                <iframe src="" frameborder="0" allowfullscreen></iframe>
+                <div class="video-caption">Finding Nemo</div>
+            </div>
+        </div>
+        </p>
+
+
+    </div>
+    <script>
+ 
+
+
+        function loadWebsite() {
+            var website = document.getElementById("websites").value;
+            window.location.href = website;
+        }
+
+        window.onload = function () {
+            document.getElementById("password-section").style.display = "block";
+            loadGoalsFromStorage();
+        }
+
+       function checkPassword() {
+            var password = document.getElementById("password-input").value;
+            if (password === "anilator95") {
+                document.getElementById("password-section").style.display = "none";
+                document.getElementById("main-content").style.display = "block";
+            } else {
+                alert("naughty naughty");
+            }
+        }
     </script>
 </body>
+
 </html>
